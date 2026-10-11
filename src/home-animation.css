@@ -1,0 +1,340 @@
+/* Home-only motion, contained within artwork rather than over text or controls. */
+.little-takeoff {
+  position: absolute;
+  left: 12%;
+  bottom: 12%;
+  width: 82px;
+  height: 47px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  animation: little-sky-departure 3.6s ease-in-out 1.2s 1 both;
+}
+.little-takeoff svg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  filter: drop-shadow(0 4px 5px #243b7a20);
+}
+.little-takeoff-glow {
+  position: absolute;
+  left: 25%;
+  right: 20%;
+  bottom: 16%;
+  height: 4px;
+  background: #8ccfe8;
+  border-radius: 50%;
+  box-shadow: 0 3px 12px 5px #8ccfe83a;
+}
+.little-takeoff-trail {
+  position: absolute;
+  left: -23px;
+  top: 62%;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #8ccfe8);
+  opacity: 0.7;
+}
+@keyframes little-sky-departure {
+  0% {
+    opacity: 0;
+    transform: translate(0, 8px) scale(0.95);
+  }
+  15% {
+    opacity: 0.9;
+    transform: translate(0, 0);
+  }
+  40% {
+    opacity: 0.9;
+    transform: translate(18px, -45px) rotate(-6deg);
+  }
+  78% {
+    opacity: 0.7;
+    transform: translate(175px, -140px) rotate(-5deg) scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(245px, -200px) rotate(-3deg) scale(0.55);
+  }
+}
+.traffic-feature {
+  display: grid;
+  grid-template-columns: 0.8fr 1.6fr;
+  gap: 55px;
+  align-items: center;
+  margin: 8px 30px 65px;
+}
+.traffic-feature-copy h2 {
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--primary);
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+.traffic-feature-copy h2 em {
+  font-family: "Playfair Display", Georgia, serif;
+}
+.traffic-feature-copy p {
+  font-size: 12px;
+  max-width: 320px;
+}
+.traffic-concept-label {
+  display: inline-block;
+  margin-top: 7px;
+  font-size: 9px;
+  letter-spacing: 0.3px;
+  color: #7d8ba3;
+}
+.traffic-player {
+  border: 1px solid #dde7f1;
+  border-radius: 13px;
+  box-shadow: var(--shadow);
+  background: white;
+  overflow: hidden;
+  min-width: 0;
+}
+.traffic-stage {
+  overflow: hidden;
+  width: 100%;
+  background: var(--soft-background);
+}
+.traffic-stage > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.traffic-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  border-top: 1px solid var(--border);
+}
+.traffic-controls > span {
+  font-size: 10px;
+  color: var(--muted);
+}
+.traffic-controls > div {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.traffic-controls .button {
+  min-height: 29px;
+  font-size: 10px;
+  padding: 5px 10px;
+  border-radius: 7px;
+  gap: 6px;
+}
+.traffic-controls .icon-button {
+  padding: 7px;
+}
+.traffic-skycar {
+  transform-origin: 269px 290px;
+  animation: traffic-liftoff 11s ease-in-out infinite;
+  will-change: transform;
+}
+.skycar-road-shadow {
+  transform-origin: 269px 307px;
+  animation: traffic-shadow 11s ease-in-out infinite;
+}
+.skycar-lift-glow {
+  animation: traffic-lift-light 11s ease-in-out infinite;
+  filter: drop-shadow(0 4px 6px #8ccfe8);
+}
+.skycar-flight-trail {
+  animation: traffic-flight-trail 11s ease-in-out infinite;
+}
+.traffic-front-row {
+  animation: traffic-queue-creep 11s ease-in-out infinite;
+}
+.traffic-back-row {
+  animation: traffic-queue-creep 13s ease-in-out infinite;
+}
+.is-paused .traffic-skycar,
+.is-paused .skycar-road-shadow,
+.is-paused .skycar-lift-glow,
+.is-paused .skycar-flight-trail,
+.is-paused .traffic-front-row,
+.is-paused .traffic-back-row {
+  animation-play-state: paused;
+}
+.is-reduced .traffic-skycar {
+  animation: none;
+  transform: translate(175px, -125px) rotate(-3deg);
+}
+.is-reduced .skycar-road-shadow {
+  animation: none;
+  opacity: 0.04;
+}
+.is-reduced .skycar-lift-glow,
+.is-reduced .skycar-flight-trail {
+  animation: none;
+  opacity: 0;
+}
+.is-reduced .traffic-front-row,
+.is-reduced .traffic-back-row {
+  animation: none;
+}
+@keyframes traffic-liftoff {
+  0%,
+  16% {
+    transform: translate(0, 0) rotate(0);
+    opacity: 1;
+  }
+  24% {
+    transform: translate(0, -12px) rotate(-3deg);
+    opacity: 1;
+  }
+  40% {
+    transform: translate(28px, -120px) rotate(-5deg);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(300px, -145px) rotate(-2deg);
+    opacity: 1;
+  }
+  77% {
+    transform: translate(590px, -165px) rotate(-1deg);
+    opacity: 1;
+  }
+  80%,
+  92% {
+    transform: translate(615px, -170px);
+    opacity: 0;
+  }
+  93% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+@keyframes traffic-shadow {
+  0%,
+  16% {
+    opacity: 0.12;
+    transform: scaleX(1);
+  }
+  40%,
+  90% {
+    opacity: 0;
+    transform: scaleX(0.4);
+  }
+  100% {
+    opacity: 0.12;
+    transform: scaleX(1);
+  }
+}
+@keyframes traffic-lift-light {
+  0%,
+  16%,
+  80%,
+  100% {
+    opacity: 0;
+  }
+  24%,
+  65% {
+    opacity: 0.65;
+  }
+}
+@keyframes traffic-flight-trail {
+  0%,
+  35%,
+  80%,
+  100% {
+    opacity: 0;
+  }
+  45%,
+  70% {
+    opacity: 0.8;
+  }
+}
+@keyframes traffic-queue-creep {
+  0%,
+  30% {
+    transform: translateX(0);
+  }
+  55%,
+  80% {
+    transform: translateX(7px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@media (max-width: 1180px) {
+  .traffic-feature {
+    gap: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .traffic-feature-copy h2 {
+    font-size: 27px;
+  }
+}
+@media (max-width: 900px) {
+  .traffic-feature {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 8px 5px 45px;
+  }
+  .traffic-feature-copy p {
+    max-width: 500px;
+  }
+}
+@media (max-width: 700px) {
+  .traffic-feature {
+    margin: 8px 10px 40px;
+  }
+  .traffic-feature-copy h2 {
+    font-size: 29px;
+  }
+  .traffic-controls {
+    padding: 10px 12px;
+  }
+  .traffic-controls > span {
+    font-size: 8px;
+    line-height: 1.6;
+  }
+  .traffic-controls .button {
+    font-size: 9px;
+  }
+  .little-takeoff {
+    width: 60px;
+    height: 34px;
+    left: 12%;
+    bottom: 12%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .little-takeoff {
+    display: none;
+  }
+  .traffic-skycar {
+    animation: none !important;
+    transform: translate(175px, -125px) rotate(-3deg);
+  }
+  .skycar-road-shadow {
+    animation: none !important;
+    opacity: 0.04;
+  }
+  .skycar-lift-glow,
+  .skycar-flight-trail {
+    animation: none !important;
+    opacity: 0;
+  }
+  .traffic-front-row,
+  .traffic-back-row {
+    animation: none !important;
+  }
+}
+
+.traffic-video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #172B4D; object-fit: contain; }
+.traffic-video-error { padding: 0 18px 16px; color: #172B4D; font-size: 13px; }
+
+.traffic-sound-prompt { padding: 14px 18px; text-align: center; background: #EAF2F7; }

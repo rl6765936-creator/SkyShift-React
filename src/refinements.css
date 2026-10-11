@@ -1,0 +1,530 @@
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 100 1000;
+  font-display: swap;
+  src: url("/fonts/dm-sans-latin-wght-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Assistant";
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url("/fonts/assistant-hebrew-wght-normal.woff2") format("woff2");
+  unicode-range: U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+}
+@font-face {
+  font-family: "Assistant";
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url("/fonts/assistant-latin-wght-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/playfair-display-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Playfair Display";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/playfair-display-latin-400-italic.woff2") format("woff2");
+}
+.language-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 5px;
+  background: #ffffffed;
+  border: 1px solid #dce4ef;
+  border-radius: 30px;
+  box-shadow: 0 4px 18px #243b7a08;
+  margin-bottom: 16px;
+  color: var(--primary);
+  direction: ltr;
+}
+.language-switch > svg {
+  margin: 0 5px;
+}
+.language-switch button {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  padding: 8px 12px;
+  border-radius: 24px;
+  font-size: 12px;
+  min-height: 34px;
+}
+.language-switch button[aria-pressed="true"] {
+  background: #eeecfb;
+  color: var(--primary);
+  font-weight: 600;
+}
+.language-switch.floating {
+  position: fixed;
+  inset-inline-end: 16px;
+  bottom: 20px;
+  z-index: 30;
+  margin: 0;
+  backdrop-filter: blur(14px);
+}
+.brand {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+.brand svg {
+  transform: none;
+}
+.brand span {
+  font-family: "Playfair Display", Georgia, serif;
+}
+:root {
+  --shadow: 0 6px 24px #243b7a07;
+}
+.app-layout {
+  background: linear-gradient(145deg, #f4f7fe, #f8fafc 70%, #f8f6f1);
+}
+.topbar {
+  height: 64px;
+}
+.page-heading {
+  margin-bottom: 22px;
+}
+.page-heading h1 {
+  font-size: 28px;
+  font-weight: 450;
+}
+.card {
+  border-color: #e3eaf6;
+  box-shadow: 0 5px 22px #243b7a05;
+}
+.stat {
+  min-height: 115px;
+  padding: 22px 18px;
+}
+.stat-icon {
+  width: 40px;
+  height: 40px;
+}
+.stat strong {
+  font-size: 29px;
+}
+.sidebar {
+  background: linear-gradient(180deg, #fff 70%, #fafbff);
+}
+.sidebar nav a.active {
+  background: linear-gradient(90deg, #eeedfc, #f5f4fd);
+}
+.vehicle-card {
+  padding: 14px;
+}
+.vehicle-art {
+  border: 1px solid #e5edf6;
+}
+.vehicle-title h2 {
+  font-weight: 500;
+}
+.vehicle-card .button {
+  border-radius: 10px;
+  background: #fff;
+  color: var(--primary);
+  border-color: #8d87df;
+  box-shadow: none;
+}
+.vehicle-card .button:hover:not(:disabled) {
+  background: #eeecfb;
+}
+.sidebar-sky {
+  background: linear-gradient(140deg, #edf4fb, #eeeafb);
+  border: 1px solid #e2e6f2;
+}
+.public-page {
+  max-width: 1600px;
+  padding: 22px;
+  background: #f8f6f1;
+}
+.landing-scene {
+  background:
+    linear-gradient(90deg, #f8f6f180, #ffffff05),
+    url("/hero-skyshift.webp") center 44% / cover no-repeat;
+  box-shadow: 0 12px 50px #243b7a0a;
+  border: 1px solid #bdd8e7;
+  border-radius: 14px;
+}
+.public-header {
+  padding: 27px 52px;
+  border-bottom: 1px solid #243b7a0b;
+}
+.public-header .brand span {
+  font-size: 34px;
+}
+.public-header nav {
+  font-size: 13px;
+  gap: 36px;
+}
+.landing-hero {
+  grid-template-columns: 1fr 1fr;
+  min-height: 470px;
+  padding: 42px 0 74px 64px;
+  gap: 0;
+}
+.hero-copy {
+  padding-top: 25px;
+  max-width: 570px;
+}
+.hero-copy h1 {
+  font-size: clamp(36px, 3.5vw, 58px);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -1.7px;
+}
+.hero-copy p {
+  font-size: 15px;
+  max-width: 420px;
+  color: #294b79;
+}
+.hero-copy .eyebrow {
+  color: #48658a;
+  font-size: 11px;
+}
+.hero-footnote {
+  font-size: 11px;
+}
+.hero-picture {
+  min-height: 0;
+  margin-top: 0;
+  overflow: visible;
+}
+.hero-picture > img {
+  display: none;
+}
+.picture-caption {
+  display: none;
+}
+.hero-wave {
+  height: 80px;
+  bottom: 100px;
+  left: -3%;
+  right: -3%;
+  border-top: 1px solid #d8b36a78;
+  background: linear-gradient(125deg, #fff9, #fff5);
+  border-radius: 48% 50% 0 0;
+  transform: rotate(-2deg);
+}
+.trust-strip {
+  padding: 32px 52px;
+  background: #ffffffed;
+  gap: 24px;
+}
+.trust-strip strong {
+  font-size: 13px;
+}
+.trust-strip small {
+  font-size: 11px;
+}
+.trust-strip svg {
+  color: #675fc1;
+}
+.experience {
+  padding: 64px 34px;
+  gap: 42px;
+}
+.experience-card {
+  border-radius: 12px;
+  padding: 14px;
+}
+.experience-card h3 {
+  font-size: 15px;
+}
+.experience-card p {
+  font-size: 12px;
+}
+.public-footer {
+  position: relative;
+  border-color: #d8b36a50;
+}
+.public-footer > span:last-child {
+  font-size: 11px;
+}
+.auth-visual {
+  background:
+    linear-gradient(180deg, #eaf2f788, #eaf2f700),
+    url("/hero-skyshift.webp") 65% center/cover no-repeat;
+}
+.auth-visual > img {
+  display: none;
+}
+.auth-visual > div {
+  margin-top: 60px;
+  max-width: 330px;
+}
+html[lang="he"] {
+  font-family: "Assistant", Arial, sans-serif;
+  font-size: 15px;
+}
+html[lang="he"] h1,
+html[lang="he"] h2,
+html[lang="he"] h3 {
+  letter-spacing: 0;
+}
+html[lang="he"] .eyebrow,
+html[lang="he"] .nav-label {
+  letter-spacing: 0.2px;
+}
+html[lang="he"] .hero-copy h1 {
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+html[lang="he"] .experience h2 em,
+html[lang="he"] .traffic-feature h2 em,
+html[lang="he"] .public-footer > span:nth-child(2) {
+  font-family: "Assistant", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+}
+html[dir="rtl"] .sidebar {
+  inset: 0 0 0 auto;
+  border-right: 0;
+  border-left: 1px solid var(--border);
+}
+html[dir="rtl"] .workspace {
+  margin-left: 0;
+  margin-right: 218px;
+}
+html[dir="rtl"] th,
+html[dir="rtl"] td {
+  text-align: right;
+}
+html[dir="rtl"] .landing-hero {
+  direction: ltr;
+  padding-left: 64px;
+  padding-right: 0;
+}
+html[dir="rtl"] .hero-copy {
+  direction: rtl;
+  text-align: right;
+  background: #f8f6f1ce;
+  border-radius: 18px;
+  padding: 25px;
+  align-self: start;
+}
+html[dir="rtl"] .password-field input {
+  padding-right: 13px;
+  padding-left: 44px;
+}
+html[dir="rtl"] .password-field .icon-button {
+  right: auto;
+  left: 5px;
+}
+html[dir="rtl"] .search-field {
+  padding-left: 0;
+  padding-right: 10px;
+}
+html[dir="rtl"] .button svg,
+html[dir="rtl"] .text-link svg {
+  transform: scaleX(-1);
+}
+html[dir="rtl"] .traffic-stage {
+  direction: ltr;
+}
+html[dir="rtl"] .back-link {
+  direction: rtl;
+}
+input[type="email"],
+input[type="password"],
+input[type="datetime-local"],
+.trend-line {
+  direction: ltr;
+}
+html[lang="he"] .sidebar nav a {
+  font-size: 13px;
+}
+html[lang="he"] .stat-label {
+  font-size: 13px;
+}
+html[lang="he"] .stat-note {
+  font-size: 12px;
+}
+html[lang="he"] .page-heading p {
+  font-size: 14px;
+}
+@media (max-width: 1180px) {
+  html[dir="rtl"] .workspace {
+    margin-right: 190px;
+  }
+  .public-header {
+    padding: 24px 32px;
+  }
+  .landing-hero {
+    padding-left: 40px;
+    min-height: 430px;
+  }
+  html[dir="rtl"] .landing-hero {
+    padding-left: 40px;
+    padding-right: 0;
+  }
+  .public-header nav {
+    gap: 22px;
+  }
+  .hero-copy h1 {
+    font-size: 42px;
+  }
+  .trust-strip {
+    padding: 28px 32px;
+  }
+  .stat {
+    padding: 18px 14px;
+  }
+}
+@media (max-width: 700px) {
+  .public-page {
+    padding: 12px;
+  }
+  .public-header {
+    padding: 20px;
+    gap: 10px;
+  }
+  .public-header .brand span {
+    font-size: 26px;
+  }
+  .landing-scene {
+    background-position: 67% center;
+  }
+  .landing-hero {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 24px 28px;
+    min-height: 540px;
+  }
+  .hero-copy {
+    padding: 20px;
+    background: linear-gradient(125deg, #f8f6f1ee, #f8f6f1b8);
+    border-radius: 18px;
+  }
+  .hero-copy h1 {
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+  .hero-copy p {
+    font-size: 14px;
+  }
+  .hero-copy .eyebrow {
+    font-size: 10px;
+  }
+  .hero-picture {
+    height: 150px;
+    width: 100%;
+  }
+  .hero-wave {
+    bottom: 163px;
+    height: 44px;
+  }
+  .trust-strip {
+    padding: 24px 20px;
+    gap: 22px 14px;
+  }
+  .trust-strip strong {
+    font-size: 11px;
+  }
+  .trust-strip small {
+    font-size: 10px;
+  }
+  .experience {
+    padding: 40px 10px;
+  }
+  .experience-card {
+    grid-template-columns: 125px 1fr;
+  }
+  .experience-card h3 {
+    font-size: 14px;
+  }
+  .experience-card p {
+    font-size: 11px;
+  }
+  .language-switch.floating {
+    inset-inline-end: 12px;
+    bottom: 12px;
+  }
+  .language-switch button {
+    padding: 6px 10px;
+  }
+  .language-switch > svg {
+    display: none;
+  }
+  html[dir="rtl"] .workspace {
+    margin-right: 0;
+  }
+  html[dir="rtl"] .sidebar {
+    transform: translateX(100%);
+  }
+  html[dir="rtl"] .sidebar.is-open {
+    transform: translateX(0);
+  }
+  html[dir="rtl"] .landing-hero {
+    padding: 24px;
+  }
+  html[dir="rtl"] .topbar-title {
+    margin-right: 0;
+    margin-left: auto;
+  }
+  .sidebar .language-switch {
+    margin-bottom: 12px;
+  }
+  .stat {
+    padding: 16px 12px;
+  }
+  .stat strong {
+    font-size: 25px;
+  }
+  .auth-visual {
+    background-position: 70% 45%;
+  }
+  .auth-visual > div {
+    margin-top: 15px;
+  }
+  .auth-visual h1 {
+    background: #f8f6f1b8;
+    border-radius: 8px;
+    padding: 5px 12px;
+    display: inline-block;
+  }
+  .public-footer {
+    padding-bottom: 72px;
+  }
+}
+
+/* Keep account exit reachable even on shorter screens. */
+.sidebar { overflow-y: auto; }
+.topbar .topbar-logout { width: auto; flex-shrink: 0; margin-inline-start: auto; font-size: 12px; border: 1px solid var(--border); }
+@media (max-width: 600px) { .topbar .topbar-logout { padding: 9px; gap: 5px; } .topbar-title { min-width: 0; } }
+
+.modal:has(.skyshift-story) { max-width: 760px; max-height: 85vh; overflow-y: auto; padding: 30px; }
+.skyshift-story h3 { font-size: 24px; color: #243B7A; margin: 10px 0 20px; }
+.skyshift-story p { font-size: 16px; line-height: 1.8; margin: 0 0 16px; }
+.skyshift-story .story-note { background: #EAF2F7; border-radius: 12px; padding: 16px; font-size: 14px; color: #52637a; }
+.gender-field { border: 1px solid #dce5ef; border-radius: 10px; padding: 12px 16px; display: flex; flex-wrap: wrap; gap: 14px; }
+.gender-field legend { padding: 0 6px; font-size: 14px; }
+.auth-page .gender-field label { display: inline-flex; align-items: center; gap: 8px; margin: 0; }
+.auth-page .gender-field input { width: 18px; height: 18px; accent-color: #8178D8; }
+.gender-field small { flex-basis: 100%; }
+.vehicle-art img { object-fit: contain; }
+
+/* Shared catalog scene uses the SkyShift hero palette. */
+.vehicle-art { background: linear-gradient(145deg, #F8F6F1 10%, #EAF2F7 45%, #8CCFE8 85%); }
+.vehicle-description { color: var(--text); font-size: 0.95rem; line-height: 1.6; margin: .65rem 0; }
+.catalog-disclaimer { display: block; color: #718096; font-size: .8rem; margin: .5rem 0; }
+.modal textarea[readonly] { width: 100%; min-height: 5rem; padding: .7rem; color: #172B4D; background: #EAF2F7; border: 1px solid #dce5ed; border-radius: .6rem; font: inherit; resize: vertical; }
+
+/* Specification accuracy labels (catalog vehicles). */
+.accuracy-badge { display: inline-block; margin-inline-start: .35rem; padding: .05rem .4rem; border-radius: 999px; font-size: .7rem; font-weight: 600; line-height: 1.5; white-space: nowrap; }
+.accuracy-badge.illustrative { background: #fff4e0; color: #8a5300; border: 1px solid #f1d39c; }
+.accuracy-badge.verified { background: #e8f5ee; color: #1f6b43; border: 1px solid #b9dfca; }
+.catalog-notes { display: grid; gap: .15rem; }
+.catalog-notes .catalog-disclaimer { margin: 0; }
+.label-row { display: inline-flex; align-items: center; flex-wrap: wrap; gap: .25rem; }

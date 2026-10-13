@@ -369,6 +369,31 @@ export const Trend = ({
           fill={`url(#${gradient})`}
         />
         <path d={line} fill="none" stroke="#8178D8" strokeWidth="2" />
+        {coords.length === 1 && (
+          // A single day has no line to draw, so show it as a column with its count.
+          <g>
+            <rect
+              x={coords[0].x - 14}
+              y={coords[0].y}
+              width="28"
+              height={160 - coords[0].y}
+              rx="6"
+              fill={`url(#${gradient})`}
+              stroke="#8178D8"
+              strokeWidth="1.5"
+            />
+            <text
+              x={coords[0].x}
+              y={coords[0].y - 10}
+              textAnchor="middle"
+              fill="#4a4f8c"
+              fontSize="11"
+              fontWeight="600"
+            >
+              {coords[0].count}
+            </text>
+          </g>
+        )}
         {coords.map((p, i) => (
           <g key={p.date}>
             <circle cx={p.x} cy={p.y} r="3" fill="#8178D8">

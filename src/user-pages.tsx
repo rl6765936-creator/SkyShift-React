@@ -31,6 +31,15 @@ import {
 } from "./components";
 import type { Vehicle } from "./types";
 import { vehicleDisplay } from "./vehicle-display";
+
+// The API's percentage is a whole number (rounded down), so a few flights against a high
+// monthly goal stay at 0%. Show one decimal from the same counts; eligibility stays server-side.
+const progressValue = (d: { completedFlights: number; expectedMonthlyTrips: number; percentage: number }) =>
+  d.expectedMonthlyTrips > 0 ? (d.completedFlights * 100) / d.expectedMonthlyTrips : d.percentage;
+const progressLabel = (d: { completedFlights: number; expectedMonthlyTrips: number; percentage: number }) => {
+  const v = progressValue(d);
+  return Number.isInteger(v) ? String(v) : v.toFixed(1);
+};
 const useDashboard = () =>
   useQuery({
     queryKey: ["dashboard"],
@@ -99,7 +108,7 @@ export const UserDashboard = () => {
               />
               <Stat
                 label={t("Your progress")}
-                value={`${data.percentage}%`}
+                value={`${progressLabel(data)}%`}
                 note={t("Of your expected trips")}
                 icon={Sparkles}
                 tone="turquoise"
@@ -120,13 +129,13 @@ export const UserDashboard = () => {
                     className="progress-ring"
                     style={
                       {
-                        "--progress": `${Math.min(Math.max(data.percentage, 0), 100)}%`,
+                        "--progress": `${Math.min(Math.max(progressValue(data), 0), 100)}%`,
                       } as React.CSSProperties
                     }
                   >
                     <div>
                       <strong>
-                        {data.percentage}
+                        {progressLabel(data)}
                         <small>{t("%")}</small>
                       </strong>
                       <span>{t("completed")}</span>
